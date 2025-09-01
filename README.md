@@ -3,7 +3,7 @@ Be sure to go to [KaKi87's Phi for Vivaldi](https://github.com/KaKi87/phi-for-vi
 
 This is my personal CSS that I use to fit my liking. Based mostly on KaKi87's work so head to their repo and support them
 
-##Features:
+## Features:
 
 <img width="296" height="80" alt="image" src="https://github.com/user-attachments/assets/e18fa175-7183-4742-81e6-6fe4cf396899" />
 
