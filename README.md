@@ -14,7 +14,7 @@ A lot of things, i am lazy to put screenshots
 **Update (9/2/2025)**
 + Adjusted the Tab container width (Replica of my Zen Setup)
 + Revamped the tab highlights
-  + Pinned tab stays the same
-  + Non-pinned tabs are now highlighted differently (Corners are semicircles)
+  + Pinned tab stays the same (Active Pinned Tabs are still highlighted with a glow effect)
+  + Non-pinned tabs are now highlighted differently (Active and Non-active Tabs have their ends as semicircles)
 + Vertical Tabs's Scrollbar is fixed
 + The New tab icon on the bottom is removed (The + icon)
