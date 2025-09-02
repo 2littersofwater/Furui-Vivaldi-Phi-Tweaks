@@ -9,4 +9,12 @@ The Installation guide found in [KaKi87's Phi for Vivaldi](https://github.com/Ka
 
 ## Features:
 
-a lot of things, i am lazy to put in the changes
+A lot of things, i am lazy to put screenshots
+
+
+
++ Revamped the tab highlights
+  + Pinned tab stays the same
+  + Non-pinned tabs are now highlighted differently (Corners are semicircles)
++ Vertical Tabs's Scrollbar is fixed
++ The New tab icon on the bottom is removed (The + icon)
