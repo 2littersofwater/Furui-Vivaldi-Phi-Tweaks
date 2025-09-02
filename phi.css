@@ -20,7 +20,7 @@
 
 :root
 {
-    --phi--sidebar-width: 270;
+    --phi--sidebar-width: 280;
     --phi--compact-sidebar-width: 50;
     --phi--is-phi-menu-icon: 1;
     --phi--toolbar-column-count: 8;
@@ -159,7 +159,7 @@
     {
         position: absolute !important;
 		top: 5px !important;
-        left: 200px !important;
+        left: 210px !important;
         right: unset !important;
         grid-column: 1 / -1;
 		margin-left: auto !important;
@@ -1124,9 +1124,31 @@ button.vivaldi {
 .WorkspacePopup-Items .separator { display: none !important; }
 
 
-/* Allow hovered/active tabs to overflow without clipping */
+
+/* Force vertical scrolling without breaking the grid */
 #tabs-container,
-#tabs-tabbar-container,
+#tabs-tabbar-container {
+  overflow-y: auto !important;   /* vertical scroll */
+  overflow-x: hidden !important; /* kill horizontal scroll */
+}
+
+
+
+.tab-position,
+.tab-wrapper {
+  min-height: 30px !important;   /* keep tabs sized consistently */
+  flex: none !important;         /* prevent distortion inside grid */
+}
+
+
+
+.tab-position,
+.tab-wrapper {
+  min-height: 30px !important;   /* keep tabs sized consistently */
+  flex: none !important;         /* prevent distortion inside grid */
+}
+
+/* Allow hovered/active tabs to render shadows/scale outside their cell */
 .tab-strip,
 .tab-position,
 .tab-wrapper {
@@ -1138,29 +1160,59 @@ button.vivaldi {
   z-index: 0;
 }
 
-/* Active tab with inner glow */
-.tab.active {
+.tab.active.pinned {
   background-color: transparent !important;
-  box-shadow: inset 0 0 4px 2px #d1d1d1 !important; /* inner glow color */
+  box-shadow: inset 0 0 3px 1px #d1d1d1 !important; 
   border-radius: 6px !important;
 }
 
-/* Active + hovered */
-.tab.active:hover {
-  transform: scale(1.04);
+.tab.active.pinned:hover {
+  transform: scale(1.08); 
+  z-index: 10;
+  box-shadow: inset 0 0 6px 2px #d1d1d1 !important,
+              0 4px 12px rgba(0,0,0,0.25) !important;
+}
+
+.tab.active:not(.pinned) {
+  background-color: rgba(209, 209, 209, 0.1) !important; 
+  box-shadow: none !important;
+  border-radius: 30px !important;
+}
+
+.tab.active:not(pinned):hover {
+  transform: scale(1.02); 
   z-index: 10;
 }
 
-/* Hovered tab (not active) */
-.tab:hover:not(.active) {
+.tab:hover:not(.active):not(.pinned) {
   background-color: rgba(209, 209, 209, 0.1) !important;
-  transform: scale(1.08);
+  transform: scale(1.05);
   z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border-radius: 30px !important;
 }
 
+.tab.pinned:hover:not(.active) {
+  background-color: rgba(209, 209, 209, 0.1) !important;
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border-radius: 6px !important;
+}
+
+
+/* Ensure text remains readable on active tabs */
 .tab.active .title {
   color: white !important;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -1230,4 +1282,60 @@ button.vivaldi {
     opacity: 1 !important;
     max-height: 500px !important;
     pointer-events: auto !important;
+}
+
+
+.button-toolbar.button-menu .button-toolbar-menu-indicator svg {
+    width: 0px;
+    height: 0px;
+    margin: 0;
+}
+
+.WorkspacePopup-Items hr {
+    height: 0px;
+    border: 0;
+    background: var(--colorFgFaded);
+    border-radius: var(--radius);
+    opacity: 0.15;
+    width: 95%;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+/* Make the address bar container taller */
+.toolbar-mainbar.UrlBar {
+  min-height: 48px !important;   /* was 40px */
+  padding: 8px 10px !important;   /* adjust padding to center contents */
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+/* Make the address field taller */
+.UrlBar-AddressField {
+  min-height: 40px !important;   /* was 32px */
+  font-size: 14px !important;    /* slightly bigger text */
+  border-radius: 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Make the buttons inside scale too */
+.toolbar-mainbar.UrlBar .button-toolbar {
+  min-height: 40px !important;   /* was 32px */
+  min-width: 40px !important;
+}
+
+
+
+
+
+/* Hide the + (New Tab) button */
+.newtab,
+.button-tabbar {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
