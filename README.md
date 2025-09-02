@@ -11,8 +11,8 @@ The Installation guide found in [KaKi87's Phi for Vivaldi](https://github.com/Ka
 
 A lot of things, i am lazy to put screenshots
 
-
-
+**Update (9/2/2025)**
++ Adjusted the Tab container width (Replica of my Zen Setup)
 + Revamped the tab highlights
   + Pinned tab stays the same
   + Non-pinned tabs are now highlighted differently (Corners are semicircles)
