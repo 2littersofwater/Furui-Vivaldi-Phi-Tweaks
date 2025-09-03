@@ -11,7 +11,14 @@ The Installation guide found in [KaKi87's Phi for Vivaldi](https://github.com/Ka
 
 A lot of things, i am lazy to put screenshots
 
-**Update (9/2/2025)**
+## Updates:
+
+**Update V0.3 (9/3/2025)**
++ FIXED: Location of the removed New Tab (+) Icon is now clickable
++ Site Info Button and Page Load Info of the Address Bar is now located at the right side of the field
++ Organized Appended Codes
+
+**Update V0.2 (9/2/2025)**
 + Adjusted the Tab container width (Replica of my Zen Setup)
 + Revamped the tab highlights
   + Pinned tab stays the same (Active Pinned Tabs are still highlighted with a glow effect)
