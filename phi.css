@@ -979,176 +979,29 @@
 
 
 
+/*This is the section that is full of appended code*/
 
 
 
 
+/*=============================================
+  Appended Phi Code Organized by Category
+=============================================*/
 
+/*========================
+  Tab Customization
+========================*/
 .theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg), 
 .acc-dark.color-behind-tabs-off .tab-position .tab.active .tab-header .favicon:not(.svg) {
   filter: none;
 }
 
-/* Hide the Vivaldi menu (sandwich) button */
-button.vivaldi {
-    display: none !important;
-}
-
-/* Right-aligned group */
-.window-buttongroup.on-mainbar {
-    margin-left: auto !important;
-    margin-right: 8px !important;
-    gap: 6px !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-
-/* Base circle style */
-.window-buttongroup.on-mainbar button {
-    width: 14px !important;
-    height: 14px !important;
-    border-radius: 50% !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    min-width: 14px !important;
-    min-height: 14px !important;
-    font-size: 0 !important;          /* hide default symbols */
-    color: transparent !important;    /* hide fallback text */
-}
-
-/* Hide default glyphs */
-.window-buttongroup.on-mainbar button::before,
-.window-buttongroup.on-mainbar button::after {
-    content: none !important;
-}
-
-/* macOS colors */
-.window-buttongroup.on-mainbar .window-close {
-    background: #bf4040 !important;
-}
-.window-buttongroup.on-mainbar .window-close img,
-.window-buttongroup.on-mainbar .window-close svg {
-    width: 0 !important;
-	height: 0 !important;
-}
-
-
-.window-buttongroup.on-mainbar .window-minimize {
-    background: #bfbf40 !important;
-}
-.window-buttongroup.on-mainbar .window-minimize img,
-.window-buttongroup.on-mainbar .window-minimize svg {
-    width: 0 !important;
-	height: 0 !important;
-}
-
-
-.window-buttongroup.on-mainbar .window-maximize {
-    background: #339944 !important;
-}
-.window-buttongroup.on-mainbar .window-maximize img,
-.window-buttongroup.on-mainbar .window-maximize svg {
-    width: 0 !important;
-	height: 0 !important;
-}
-
-
-/* Hover = darker */
-.window-buttongroup.on-mainbar .window-close:hover {
-    background: #452521 !important;
-}
-
-.window-buttongroup.on-mainbar .window-minimize:hover {
-    background: #444521 !important;
-}
-
-.window-buttongroup.on-mainbar .window-maximize:hover {
-    background: #1e3722 !important;
-}
-
-
-
-/* Hide the toggle by default (still reserves space).
-   Add a delay so it doesn't vanish immediately when hover leaves. */
-.toolbar-extensions [aria-label*="Extension" i],
-.toolbar-extensions [title*="Extension" i] {
-    visibility: hidden !important;
-    opacity: 0 !important;
-    /* keep pointer-events auto so it's clickable during the brief grace period */
-    pointer-events: auto !important;
-    /* delay hiding: opacity will animate after 250ms, visibility will flip after 250ms */
-    transition: opacity 0.15s ease-in-out 250ms, visibility 0s linear 100ms;
-	display: flex !important;
-    justify-content: flex-end !important;
-    flex: 1 !important;
-}
-
-/* Show it immediately while hovering the extensions area */
-.toolbar-extensions:hover [aria-label*="Extension" i],
-.toolbar-extensions:hover [title*="Extension" i] {
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    /* show instantly (no delay) */
-    transition: opacity 0.15s ease-in-out 0s, visibility 0s linear 0s;
-	display: flex !important;
-	flex: 1 !important;
-	justify-content: flex-end !important;
-}
-
-
-/* Primary: hide the default/current window entry in the Workspaces popup */
-.WorkspacePopup .WorkspacePopup-Items .this-window,
-.WorkspacePopup-Items .this-window,
-.WorkspacePopup-Items .workspace-item-wrapper.this-window {
-  display: none !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-  visibility: hidden !important;
-}
-
-/* Fallbacks — try these if the above doesn't hit (covers a few different builds) */
-.WorkspacePopup-Items > .workspace-item-wrapper:first-child { display: none !important; }
-.WorkspacePopup-Items [data-window-index="0"],
-.WorkspacePopup-Items .window-0,
-.WorkspacePopup-Items .window0 {
-  display: none !important;
-}
-
-/* Optional: hide the avatar / separator if it looks awkward afterwards */
-.WorkspacePopup-Items .avatar,
-.WorkspacePopup-Items .separator { display: none !important; }
-
-
-
-/* Force vertical scrolling without breaking the grid */
-#tabs-container,
-#tabs-tabbar-container {
-  overflow-y: auto !important;   /* vertical scroll */
-  overflow-x: hidden !important; /* kill horizontal scroll */
-}
-
-
-
 .tab-position,
 .tab-wrapper {
-  min-height: 30px !important;   /* keep tabs sized consistently */
-  flex: none !important;         /* prevent distortion inside grid */
+  min-height: 30px !important;
+  flex: none !important;
 }
 
-
-
-.tab-position,
-.tab-wrapper {
-  min-height: 30px !important;   /* keep tabs sized consistently */
-  flex: none !important;         /* prevent distortion inside grid */
-}
-
-/* Allow hovered/active tabs to render shadows/scale outside their cell */
 .tab-strip,
 .tab-position,
 .tab-wrapper {
@@ -1200,60 +1053,17 @@ button.vivaldi {
   border-radius: 6px !important;
 }
 
-
-/* Ensure text remains readable on active tabs */
 .tab.active .title {
   color: white !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* Make the downloads popup more compact without breaking layout */
-
-/* Reduce overall font size */
-#downloads-container,
-#downloads-container * {
-    font-size: 90% !important;
-}
-
-/* Make each download row smaller */
-.downloadItem,
-.download-item {
-    padding: 2px 6px !important;
-    min-height: 22px !important;
-}
-
-/* Shrink progress bar */
-.downloadProgress,
-.download-progress {
-    height: 3px !important;
-}
-
-/* Shrink buttons inside download items */
-.downloadItem .button-toolbar,
-.download-item .button-toolbar {
-    padding: 0 4px !important;
-    scale: 0.9;
-}
-
-
-/* Softer grayscale for unloaded / discarded tabs */
+/* Softer grayscale for discarded tabs */
 .tab.isdiscarded,
 .tab[class*="discard"] {
   filter: grayscale(100%) brightness(95%) !important;
-  opacity: 0.9 !important;   /* was 0.6, now much clearer */
+  opacity: 0.9 !important;
 }
 
-/* Apply same to text + favicon */
 .tab.isdiscarded .title,
 .tab.isdiscarded .favicon,
 .tab[class*="discard"] .title,
@@ -1262,7 +1072,6 @@ button.vivaldi {
   opacity: 0.9 !important;
 }
 
-/* Indicators stay full color/opacity */
 .tab.isdiscarded .media-indicator,
 .tab.isdiscarded .badge,
 .tab.isdiscarded .close,
@@ -1273,9 +1082,183 @@ button.vivaldi {
   opacity: 1 !important;
 }
 
+/*========================
+  Title Bar / Window Controls
+========================*/
 
+/* Hide the Vivaldi menu (sandwich) button */
+button.vivaldi {
+    display: none !important;
+}
 
-/* Always show dropdown when the address field has focus (including Ctrl+T) */
+/* Right-aligned group */
+.window-buttongroup.on-mainbar {
+    margin-left: auto !important;
+    margin-right: 8px !important;
+    gap: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Base circle style */
+.window-buttongroup.on-mainbar button {
+    width: 14px !important;
+    height: 14px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    font-size: 0 !important;
+    color: transparent !important;
+}
+
+/* Hide default glyphs */
+.window-buttongroup.on-mainbar button::before,
+.window-buttongroup.on-mainbar button::after {
+    content: none !important;
+}
+
+/* macOS colors */
+.window-buttongroup.on-mainbar .window-close {
+    background: #bf4040 !important;
+}
+.window-buttongroup.on-mainbar .window-close img,
+.window-buttongroup.on-mainbar .window-close svg {
+    width: 0 !important;
+	height: 0 !important;
+}
+
+.window-buttongroup.on-mainbar .window-minimize {
+    background: #bfbf40 !important;
+}
+.window-buttongroup.on-mainbar .window-minimize img,
+.window-buttongroup.on-mainbar .window-minimize svg {
+    width: 0 !important;
+	height: 0 !important;
+}
+
+.window-buttongroup.on-mainbar .window-maximize {
+    background: #339944 !important;
+}
+.window-buttongroup.on-mainbar .window-maximize img,
+.window-buttongroup.on-mainbar .window-maximize svg {
+    width: 0 !important;
+	height: 0 !important;
+}
+
+/* Hover = darker */
+.window-buttongroup.on-mainbar .window-close:hover {
+    background: #452521 !important;
+}
+.window-buttongroup.on-mainbar .window-minimize:hover {
+    background: #444521 !important;
+}
+.window-buttongroup.on-mainbar .window-maximize:hover {
+    background: #1e3722 !important;
+}
+
+/*========================
+  Toolbar / Extensions
+========================*/
+
+/* Hide the toggle by default */
+.toolbar-extensions [aria-label*="Extension" i],
+.toolbar-extensions [title*="Extension" i] {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: auto !important;
+    transition: opacity 0.15s ease-in-out 250ms, visibility 0s linear 100ms;
+	display: flex !important;
+    justify-content: flex-end !important;
+    flex: 1 !important;
+}
+
+/* Show immediately while hovering */
+.toolbar-extensions:hover [aria-label*="Extension" i],
+.toolbar-extensions:hover [title*="Extension" i] {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: opacity 0.15s ease-in-out 0s, visibility 0s linear 0s;
+	display: flex !important;
+	flex: 1 !important;
+	justify-content: flex-end !important;
+}
+
+/* Hide trailing new tab toolbar */
+.toolbar-tabbar-after {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  flex: 0 0 0 !important;
+}
+
+/*========================
+  Downloads
+========================*/
+#downloads-container,
+#downloads-container * {
+    font-size: 90% !important;
+}
+
+.downloadItem,
+.download-item {
+    padding: 2px 6px !important;
+    min-height: 22px !important;
+}
+
+.downloadProgress,
+.download-progress {
+    height: 3px !important;
+}
+
+.downloadItem .button-toolbar,
+.download-item .button-toolbar {
+    padding: 0 4px !important;
+    scale: 0.9;
+}
+
+/*========================
+  Workspaces
+========================*/
+
+/* Hide current window entry */
+.WorkspacePopup .WorkspacePopup-Items .this-window,
+.WorkspacePopup-Items .this-window,
+.WorkspacePopup-Items .workspace-item-wrapper.this-window {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+}
+
+/* Fallbacks */
+.WorkspacePopup-Items > .workspace-item-wrapper:first-child { display: none !important; }
+.WorkspacePopup-Items [data-window-index="0"],
+.WorkspacePopup-Items .window-0,
+.WorkspacePopup-Items .window0 {
+  display: none !important;
+}
+
+/* Optional: hide avatar/separator */
+.WorkspacePopup-Items .avatar,
+.WorkspacePopup-Items .separator { display: none !important; }
+
+/*========================
+  Address Bar
+========================*/
+
+/* Always show dropdown on focus */
 .UrlBar-AddressField:focus-within ~ .OmniDropdown {
     display: flex !important;
     visibility: visible !important;
@@ -1284,12 +1267,37 @@ button.vivaldi {
     pointer-events: auto !important;
 }
 
+/* Taller container and fields */
+.toolbar-mainbar.UrlBar {
+  min-height: 48px !important;
+  padding: 8px 10px !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
 
+.UrlBar-AddressField {
+  min-height: 40px !important;
+  font-size: 14px !important;
+  border-radius: 16px !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.toolbar-mainbar.UrlBar .button-toolbar {
+  min-height: 40px !important;
+  min-width: 40px !important;
+}
+
+/* Button menu icons hidden */
 .button-toolbar.button-menu .button-toolbar-menu-indicator svg {
     width: 0px;
     height: 0px;
     margin: 0;
 }
+
+/*========================
+  Miscellaneous / UI tweaks
+========================*/
 
 .WorkspacePopup-Items hr {
     height: 0px;
@@ -1302,40 +1310,35 @@ button.vivaldi {
     margin-bottom: 4px;
 }
 
-/* Make the address bar container taller */
-.toolbar-mainbar.UrlBar {
-  min-height: 48px !important;   /* was 40px */
-  padding: 8px 10px !important;   /* adjust padding to center contents */
-  border-radius: 16px !important;
-  overflow: hidden !important;
+/* Vertical scrolling for tabs */
+#tabs-container,
+#tabs-tabbar-container {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
-/* Make the address field taller */
-.UrlBar-AddressField {
-  min-height: 40px !important;   /* was 32px */
-  font-size: 14px !important;    /* slightly bigger text */
-  border-radius: 16px !important;
-  position: relative !important;
-  overflow: visible !important;
-}
-
-/* Make the buttons inside scale too */
-.toolbar-mainbar.UrlBar .button-toolbar {
-  min-height: 40px !important;   /* was 32px */
-  min-width: 40px !important;
-}
-
-
-
-
-
-/* Hide the + (New Tab) button */
-.newtab,
-.button-tabbar {
+.BookmarkButton {
   display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+}
+
+.UrlBar-AddressField {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.UrlBar-AddressField {
+  display: flex;
+  justify-content: space-between;
+}
+
+.UrlBar-AddressField .UrlBar-AddressField-Lock,
+.UrlBar-AddressField .UrlBar-ContentBlockerStatus {
+  display: flex;
+  flex-direction: row;
+  order: 2;
+}
+
+.UrlBar-AddressField .UrlBar-UrlFieldWrapper {
+  padding-left: 12px;
+  order: 1;
 }
