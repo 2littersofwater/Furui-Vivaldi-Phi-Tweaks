@@ -18,4 +18,5 @@ A lot of things, i am lazy to put screenshots
   + Non-pinned tabs are now highlighted differently (Active and Non-active Tabs have their ends as semicircles)
 + Vertical Tabs's Scrollbar is fixed
 + The New tab icon on the bottom is removed (The + icon)
+  + **BUG**: The location of the + icon where it was supposed to stay is not clickable (tabs coinciding there cannot be clicked)
 + Much Larger and Much Rounder Address Bar (Replica of my Zen Setup)
