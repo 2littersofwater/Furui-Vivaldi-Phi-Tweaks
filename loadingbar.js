@@ -4,55 +4,61 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
+    // A function to create and append the progress bar.
+    const createProgressBar = () => {
+        const progressBar = document.createElement('div');
+        progressBar.id = 'loading-bar';
+        document.body.appendChild(progressBar);
 
-  // Function to reposition the popup
-  function repositionPopup() {
-    const popup = document.querySelector('.ExtensionPopup');
-    const toggle = document.querySelector('.ToolbarButton-Button[name="Extensions"]');
+        let currentProgress = 0;
 
-    if (!popup || !toggle) {
-      return;
-    }
+        const getPageColor = () => {
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeColorMeta) {
+                return themeColorMeta.content;
+            }
+            return '#0066ff'; 
+        };
 
-    const rect = toggle.getBoundingClientRect();
+        const updateProgress = (newWidth) => {
+            if (newWidth > currentProgress) {
+                progressBar.style.transition = 'width 0.5s ease-out';
+                progressBar.style.width = newWidth + '%';
+                currentProgress = newWidth;
+            }
+        };
 
-    // Use a short delay to ensure the popup is fully rendered and the
-    // browser's initial styles have been applied before we override them.
-    // The delay is minimal but crucial.
-    setTimeout(() => {
-      popup.style.position = 'fixed';
-      popup.style.top = `${rect.bottom + 5}px`;
-      popup.style.left = `${rect.left}px`;
-      popup.style.right = 'auto'; // Ensures the popup doesn't align to the right side of the screen
-      popup.style.zIndex = '9999'; // Give it a high z-index to ensure it's on top of everything
-    }, 10);
-  }
+        const handleComplete = () => {
+            progressBar.style.transition = 'width 0.3s ease';
+            progressBar.style.width = '100%';
+            setTimeout(() => {
+                progressBar.style.transition = 'none';
+                progressBar.style.width = '0%';
+                currentProgress = 0;
+            }, 500);
+        };
 
-  // Use a MutationObserver to watch for the *creation* of the extension popup
-  // This is more reliable than a simple click listener, as it's a direct
-  // reaction to the DOM being changed.
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.addedNodes) {
-        mutation.addedNodes.forEach((node) => {
-          // Check if the added node is an element and has the specific class
-          if (node.nodeType === 1 && node.classList.contains('ExtensionPopup')) {
-            repositionPopup();
-            // It's a good practice to disconnect the observer after the first
-            // popup is handled to avoid unnecessary performance overhead.
-            // Or you can keep it running to handle multiple popups in a row.
-            // For now, let's keep it running for simplicity.
-          }
+        // The primary event listeners.
+        chrome.webNavigation.onBeforeNavigate.addListener(() => {
+            progressBar.style.backgroundColor = getPageColor();
+            updateProgress(20);
         });
-      }
-    });
-  });
+        
+        chrome.webNavigation.onDOMContentLoaded.addListener(() => updateProgress(70));
+        chrome.webNavigation.onCompleted.addListener(handleComplete);
+    };
 
-  // Start observing the main toolbar for child element additions
-  const mainbar = document.querySelector('.mainbar');
-  if (mainbar) {
-    observer.observe(mainbar, { childList: true, subtree: true });
-    console.debug('[ext-anchor] Vivaldi Popup Observer active');
-  }
+    // Use a MutationObserver to wait for the Vivaldi UI to be ready.
+    const observer = new MutationObserver((mutations, obs) => {
+        const browserElement = document.getElementById('browser');
+        if (browserElement) {
+            obs.disconnect(); // Stop observing once the element is found.
+            createProgressBar();
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 })();
