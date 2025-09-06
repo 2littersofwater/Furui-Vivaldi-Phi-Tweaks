@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        Vivaldi Extension Popup Ultimate Fix
-// @description The definitive mod to anchor all extension popups to the main toggle
+// @name        Vivaldi Extension Popup Ultimate Fix??? lmfao
+// @description The definitive mod to anchor all extension popups to the main toggle??? WHAT ARE YOU ON LMFAO
 // ==/UserScript==
 
 (function () {
@@ -62,3 +62,4 @@
         subtree: true
     });
 })();
+
