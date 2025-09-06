@@ -1,3 +1,5 @@
+# MOVED TO [Furui-Phi-Tweaks](https://github.com/2littersofwater/Furui-Phi-Tweaks)
+
 # Furui-Vivaldi-Phi-Tweaks
 Be sure to go to [KaKi87's Phi for Vivaldi](https://github.com/KaKi87/phi-for-vivaldi)
 
