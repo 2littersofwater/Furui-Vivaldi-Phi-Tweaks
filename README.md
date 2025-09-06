@@ -1,7 +1,10 @@
 # Furui-Vivaldi-Phi-Tweaks
 Be sure to go to [KaKi87's Phi for Vivaldi](https://github.com/KaKi87/phi-for-vivaldi)
 
-This is my personal CSS that I use to fit my liking and just appended some things to Phi that I want to be included, **~~very minor~~** changes, but visually different (I think...). Based mostly on KaKi87's work so head to their repo and support them, betlog, betlog2
+This is my personal CSS that I use to fit my liking and just appended some things to Phi that I want to be included, **~~very minor~~** changes, but visually different (I think...). Based mostly on KaKi87's work so head to their repo and support them.
+
+> [!NOTE]
+> I do not do most of the code and majority of the appended line is done by using AI. I do not know anything regarding coding styles or javascripts, but I am using this experience to educate myself on this subject. Since I use this mostly to have my preference added, I only want to share what I personally like to see when I open Vivaldi.
 
 
 # Installation:
